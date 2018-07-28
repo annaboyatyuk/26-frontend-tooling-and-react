@@ -21,18 +21,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      content: this.welcomeCow,
+      content: say({
+        text: 'I AM A COW',
+      }),
     };
-    this.welcomeCow = this.welcomeCow.bind(this);
     this.cowsays = this.cowsays.bind(this);
   }
-
-  welcomeCow() {
-    this.setState({
-      text: 'I AM A COW',
-    });
-  }
-
 
   cowsays() {
     this.setState({
@@ -48,8 +42,8 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Header />
-        <pre>{this.state.content}</pre>
-        <button onClick={this.cowsays}>click me</button>
+        <pre id="body">{this.state.content}</pre>
+        <button id="button" onClick={this.cowsays}>click me</button>
       </React.Fragment>
     );
   }
@@ -58,4 +52,3 @@ class App extends React.Component {
 
 
 ReactDom.render(<App />, document.getElementById('root'));
-
